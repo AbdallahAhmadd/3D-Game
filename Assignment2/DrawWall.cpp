@@ -33,20 +33,20 @@ void updateColor(int value) {
 
 
 void drawWall() {
-    // Set color for the wall
+    
     glColor3f(ballColor[0], ballColor[1], ballColor[2]);  // Light gray color
     
-    // Draw the wall
+   
     glPushMatrix();
     glTranslated(0.0, 0.5, -9.0);  // Position the wall slightly above the ground
     glScaled(15.0, 0.2, 0.1);     // Scale to make it short and wide
     glutSolidCube(1.0);           // Draw wall as a scaled cube
     glPopMatrix();
 
-    // Set color for the cylinders (hinges)
+   
     glColor3f(ballColor[0], ballColor[1], ballColor[2]);  // Light gray color
     
-    // Draw left cylinder (hinge)
+    
     glPushMatrix();
     glTranslated(-7.5, 0.5, -9.0); // Position at the left end of the wider wall
     glRotated(90, 1, 0, 0);       // Rotate to align vertically
@@ -55,7 +55,7 @@ void drawWall() {
     gluDeleteQuadric(quad);
     glPopMatrix();
 
-    // Draw right cylinder (hinge)
+    
     glPushMatrix();
     glTranslated(7.5, 0.5, -9.0);  // Position at the right end of the wider wall
     glRotated(90, 1, 0, 0);       // Rotate to align vertically
@@ -67,25 +67,25 @@ void drawWall() {
     
     
     
-    // Draw left the wall
+    
     glPushMatrix();
     glRotated(90, 0, 1, 0);
     
     glPushMatrix();
-    glTranslated(0.0, 0.5, -9.0);  // Position the wall slightly above the ground
+    glTranslated(0.0, 0.5, -9.0);  
     glScaled(15.0, 0.2, 0.1);     // Scale to make it short and wide
     glutSolidCube(1.0);           // Draw wall as a scaled cube
     glPopMatrix();
 
-    // Set color for the cylinders (hinges)
+   
     glColor3f(ballColor[0], ballColor[1], ballColor[2]);
     
     // Draw left cylinder (hinge)
     glPushMatrix();
-    glTranslated(-7.5, 0.5, -9.0); // Position at the left end of the wider wall
-    glRotated(90, 1, 0, 0);       // Rotate to align vertically
+    glTranslated(-7.5, 0.5, -9.0);
+    glRotated(90, 1, 0, 0);
     GLUquadric* quad2 = gluNewQuadric();
-    gluCylinder(quad2, 0.15, 0.15, 0.4, 20, 20);  // Cylinder with radius 0.1 and height 0.4
+    gluCylinder(quad2, 0.15, 0.15, 0.4, 20, 20);
     gluDeleteQuadric(quad2);
     glPopMatrix();
 

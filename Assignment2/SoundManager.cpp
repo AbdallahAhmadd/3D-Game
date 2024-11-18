@@ -18,7 +18,10 @@ void loadSounds() {
         {"collect", "/Users/Abdallah/Documents/Semester 7🤞/Computer Graphics/Assignment2/Assignment2/Sounds/CollectSound.wav"},
         
         {"hit","/Users/Abdallah/Documents/Semester 7🤞/Computer Graphics/Assignment2/Assignment2/Sounds/ObstacleHit.wav"},
-        {"main","/Users/Abdallah/Documents/Semester 7🤞/Computer Graphics/Assignment2/Assignment2/Sounds/GameMusic.wav"}
+        
+        {"main","/Users/Abdallah/Documents/Semester 7🤞/Computer Graphics/Assignment2/Assignment2/Sounds/GameMusic.wav"},
+        
+        {"bells","/Users/Abdallah/Documents/Semester 7🤞/Computer Graphics/Assignment2/Assignment2/Sounds/WindChimesSoundEffect.wav"}
        
     };
 
@@ -38,13 +41,20 @@ void loadSounds() {
 void playSound(const std::string& soundName) {
     auto it = sounds.find(soundName);
     if (it != sounds.end()) {
-        if (soundName == "main") {
+        if (soundName == "main" || soundName == "bells") {
             it->second.setVolume(15);
             it->second.setLoop(true);
         }
         else{
-            it->second.setVolume(100);
+            it->second.setVolume(60);
         }
         it->second.play();
+    }
+}
+
+void stopSound(const std::string& soundName) {
+    auto it = sounds.find(soundName);
+    if (it != sounds.end()) {
+        it->second.stop();
     }
 }

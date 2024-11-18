@@ -27,13 +27,13 @@ void Ground() {
     
     glColor3f(1.0f, 1.0f, 1.0f);
 
-    // Center circle as a filled disk
+   
     glPushMatrix();
-    glTranslatef(0, 0.20, 0); // Position slightly above the ground to avoid z-fighting
+    glTranslatef(0, 0.20, 0);
     glRotated(90, 1, 0, 0);
     GLUquadric* quad = gluNewQuadric();
-    gluQuadricDrawStyle(quad, GLU_FILL); // Set to GLU_FILL for a solid disk
-    gluDisk(quad, 0.0, 1.0, 50, 1);     // Radius 2.0 for center circle
+    gluQuadricDrawStyle(quad, GLU_FILL);
+    gluDisk(quad, 0.0, 1.0, 50, 1);    
     gluDeleteQuadric(quad);
     glPopMatrix();
     

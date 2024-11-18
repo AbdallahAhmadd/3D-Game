@@ -18,33 +18,33 @@ void DrawBench(){
   
     // Bench Seat
        glPushMatrix();
-       glColor3f(0.7f, 0.4f, 0.1f); // Brown color for the bench seat
-       glTranslatef(0.0f, 0.5f, -2.0f); // Position the bench seat above the ground
-       glScalef(4.0f, 0.1f, 0.4f);      // Scale to create a long rectangular seat
+       glColor3f(0.7f, 0.4f, 0.1f);
+       glTranslatef(0.0f, 0.5f, -2.0f);
+       glScalef(4.0f, 0.1f, 0.4f);
        glutSolidCube(1.0f);
        glPopMatrix();
 
        // Left Bench Leg
        glPushMatrix();
-       glColor3f(0.4f, 0.2f, 0.0f); // Darker brown color for the legs
-       glTranslatef(-1.6f, 0.25f, -2.15f); // Position the left leg under the seat
-       glScalef(0.1f, 0.5f, 0.1f);         // Scale to create a small cube as the leg
+       glColor3f(0.4f, 0.2f, 0.0f);
+       glTranslatef(-1.6f, 0.25f, -2.15f);
+       glScalef(0.1f, 0.5f, 0.1f);
        glutSolidCube(1.0f);
        glPopMatrix();
 
        // Right Bench Leg
        glPushMatrix();
-       glColor3f(0.4f, 0.2f, 0.0f); // Darker brown color for the legs
-       glTranslatef(1.6f, 0.25f, -2.15f); // Position the right leg under the seat
-       glScalef(0.1f, 0.5f, 0.1f);       // Scale to create a small cube as the leg
+       glColor3f(0.4f, 0.2f, 0.0f);
+       glTranslatef(1.6f, 0.25f, -2.15f);
+       glScalef(0.1f, 0.5f, 0.1f);
        glutSolidCube(1.0f);
        glPopMatrix();
 
        // Middle Bench Leg
        glPushMatrix();
-       glColor3f(0.4f, 0.2f, 0.0f); // Darker brown color for the legs
-       glTranslatef(0.0f, 0.25f, -2.15f); // Position the middle leg under the seat
-       glScalef(0.1f, 0.5f, 0.1f);       // Scale to create a small cube as the leg
+       glColor3f(0.4f, 0.2f, 0.0f);
+       glTranslatef(0.0f, 0.25f, -2.15f);
+       glScalef(0.1f, 0.5f, 0.1f);
        glutSolidCube(1.0f);
        glPopMatrix();
     

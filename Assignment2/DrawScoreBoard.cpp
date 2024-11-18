@@ -16,34 +16,34 @@
 void DrawScoreBoard(){
     // Scoreboard Frame
        glPushMatrix();
-       glColor3f(0.1f, 0.1f, 0.1f); // Dark color for the frame
-       glTranslatef(0.0f, 4.0f, -9.5f); // Position it at the back, elevated above the court
-       glScalef(2.0f, 1.0f, 0.1f);       // Scale to create a rectangular frame
+       glColor3f(0.1f, 0.1f, 0.1f);
+       glTranslatef(0.0f, 4.0f, -9.5f);
+       glScalef(2.0f, 1.0f, 0.1f);
        glutSolidCube(1.0f);
        glPopMatrix();
 
        // Display Screen
        glPushMatrix();
-       glColor3f(0.2f, 0.2f, 0.2f); // Darker color for the screen background
-       glTranslatef(0.0f, 4.0f, -9.15f); // Position it slightly in front of the frame
-       glScalef(1.8f, 0.8f, 0.05f);       // Slightly smaller than the frame
+       glColor3f(0.2f, 0.2f, 0.2f);
+       glTranslatef(0.0f, 4.0f, -9.15f);
+       glScalef(1.8f, 0.8f, 0.05f);
        glutSolidCube(1.0f);
        glPopMatrix();
 
        // Sample Score (Left Team)
        glPushMatrix();
-       glColor3f(1.0f, 0.0f, 0.0f); // Red color for the score
-       glTranslatef(-0.5f, 4.1f, -8.9f); // Position on the left side of the screen
-       glScalef(0.2f, 0.4f, 0.05f);       // Scale to represent a digit
-       glutSolidCube(1.0f);               // Example "score" number as a simple block
+       glColor3f(1.0f, 0.0f, 0.0f);
+       glTranslatef(-0.5f, 4.1f, -8.9f);
+       glScalef(0.2f, 0.4f, 0.05f);
+       glutSolidCube(1.0f);
        glPopMatrix();
 
        // Sample Score (Right Team)
        glPushMatrix();
-       glColor3f(0.0f, 1.0f, 0.0f); // Green color for the score
-       glTranslatef(0.5f, 4.1f, -8.9f); // Position on the right side of the screen
-       glScalef(0.2f, 0.4f, 0.05f);       // Scale to represent a digit
-       glutSolidCube(1.0f);               // Example "score" number as a simple block
+       glColor3f(0.0f, 1.0f, 0.0f);
+       glTranslatef(0.5f, 4.1f, -8.9f);
+       glScalef(0.2f, 0.4f, 0.05f);
+       glutSolidCube(1.0f);               
        glPopMatrix();
     
 }

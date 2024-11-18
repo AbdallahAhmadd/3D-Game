@@ -22,54 +22,68 @@ Player::Player(Vector3f pos)
 
 bool Player::isPlayerInsideFence(const Vector3f& newPosition) const {
     // Wall 1: Front wall (aligned with Z axis)
-    float frontWallMinX = -7.5f;
-    float frontWallMaxX = 7.5f;
+    float frontWallMinX = -8.5f;
+    float frontWallMaxX = 8.5f;
     float frontWallMinY = 0.4f;  // Bottom edge
     float frontWallMaxY = 0.6f;  // Top edge
     float frontWallMinZ = -9.5f;
     float frontWallMaxZ = -8.5f;
-    
+
     // Wall 2: Left wall (rotated 90 degrees around Y axis, extending along Z-axis)
     float leftWallMinX = -9.25f;  // -9.0 - (0.5 / 2)
     float leftWallMaxX = -8.75f;  // -9.0 + (0.5 / 2)
     float leftWallMinY = 0.25f;   // 0.5 - (0.5 / 2)
     float leftWallMaxY = 0.75f;   // 0.5 + (0.5 / 2)
-    float leftWallMinZ = -7.75f;  // 0.0 - (15.5 / 2)
-    float leftWallMaxZ = 7.75f;   // 0.0 + (15.5 / 2)
-    
+    float leftWallMinZ = -9.75f;  // 0.0 - (15.5 / 2)
+    float leftWallMaxZ = 9.75f;   // 0.0 + (15.5 / 2)
+
     // Wall 3: Right wall (positioned at 9.0, 0.5, 0.0 and scaled to 0.5 x 0.5 x 15.5)
     float rightWallMinX = 8.75f;  // 9.0 - (0.5 / 2)
     float rightWallMaxX = 9.25f;  // 9.0 + (0.5 / 2)
     float rightWallMinY = 0.25f;  // 0.5 - (0.5 / 2)
     float rightWallMaxY = 0.75f;  // 0.5 + (0.5 / 2)
-    float rightWallMinZ = -7.75f; // 0.0 - (15.5 / 2)
-    float rightWallMaxZ = 7.75f;  // 0.0 + (15.5 / 2)
+    float rightWallMinZ = -9.75f; // 0.0 - (15.5 / 2)
+    float rightWallMaxZ = 9.75f;  // 0.0 + (15.5 / 2)
+
+    // Wall 4: Back wall (aligned with Z axis, in front of the player)
+    float backWallMinX = -8.5f;   // Aligned with front wall X bounds
+    float backWallMaxX = 8.5f;    // Aligned with front wall X bounds
+    float backWallMinY = 0.4f;    // Bottom edge
+    float backWallMaxY = 0.6f;    // Top edge
+    float backWallMinZ = 8.5f;    // Positioned in front
+    float backWallMaxZ = 9.5f;    // Positioned in front
+
     // Define player's bounding box based on position and dimensions
-    float playerMinX = newPosition.x - 1.5/2;
-    float playerMaxX = newPosition.x + 1.5/2;
+    float playerMinX = newPosition.x - 1.5f / 2.0f;
+    float playerMaxX = newPosition.x + 1.5f / 2.0f;
     float playerMinY = newPosition.y;
-    float playerMaxY = newPosition.y + 5/2;
-    float playerMinZ = newPosition.z - 0.6/2;
-    float playerMaxZ = newPosition.z + 0.6/2;
+    float playerMaxY = newPosition.y + 5.0f / 2.0f;
+    float playerMinZ = newPosition.z - 0.6f / 2.0f;
+    float playerMaxZ = newPosition.z + 0.6f / 2.0f;
+
     // Check for collision with each wall
     bool frontWallCollision =
-    playerMaxX > frontWallMinX && playerMinX < frontWallMaxX &&
-    playerMaxY > frontWallMinY && playerMinY < frontWallMaxY &&
-    playerMaxZ > frontWallMinZ && playerMinZ < frontWallMaxZ;
-    
-    bool leftWallCollision =
-    playerMaxX > leftWallMinX && playerMinX < leftWallMaxX &&
-    playerMaxY > leftWallMinY && playerMinY < leftWallMaxY &&
-    playerMaxZ > leftWallMinZ && playerMinZ < leftWallMaxZ;
-    
-    bool rightWallCollision =
-    playerMaxX > rightWallMinX && playerMinX < rightWallMaxX &&
-    playerMaxY > rightWallMinY && playerMinY < rightWallMaxY &&
-    playerMaxZ > rightWallMinZ && playerMinZ < rightWallMaxZ;
-    
-    return frontWallCollision || leftWallCollision || rightWallCollision;
-}
+        playerMaxX > frontWallMinX && playerMinX < frontWallMaxX &&
+        playerMaxY > frontWallMinY && playerMinY < frontWallMaxY &&
+        playerMaxZ > frontWallMinZ && playerMinZ < frontWallMaxZ;
 
+    bool leftWallCollision =
+        playerMaxX > leftWallMinX && playerMinX < leftWallMaxX &&
+        playerMaxY > leftWallMinY && playerMinY < leftWallMaxY &&
+        playerMaxZ > leftWallMinZ && playerMinZ < leftWallMaxZ;
+
+    bool rightWallCollision =
+        playerMaxX > rightWallMinX && playerMinX < rightWallMaxX &&
+        playerMaxY > rightWallMinY && playerMinY < rightWallMaxY &&
+        playerMaxZ > rightWallMinZ && playerMinZ < rightWallMaxZ;
+
+    bool backWallCollision =
+        playerMaxX > backWallMinX && playerMinX < backWallMaxX &&
+        playerMaxY > backWallMinY && playerMinY < backWallMaxY &&
+        playerMaxZ > backWallMinZ && playerMinZ < backWallMaxZ;
+
+    return frontWallCollision || leftWallCollision || rightWallCollision || backWallCollision;
+}
 
 void Player::drawHead() {
     glColor3fv(skinColor);

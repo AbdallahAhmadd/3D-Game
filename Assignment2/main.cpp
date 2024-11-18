@@ -370,6 +370,10 @@ void Keyboard(unsigned char key, int x, int y) {
             
         case 'j':
             isAnim= !isAnim;
+            if(isAnim)
+                playSound("bells");
+            else
+                stopSound("bells");
             break;
             
         case 'w':

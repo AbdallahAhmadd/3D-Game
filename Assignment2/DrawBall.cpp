@@ -14,22 +14,18 @@
 
 void drawBasketball() {
     // Set color for the basketball
-    glColor3f(1.0f, 0.55f, 0.0f); // Orange color for the basketball
-    
+    glColor3f(1.0f, 0.55f, 0.0f);
     glPushMatrix();
     glutSolidSphere(0.4, 30, 30);
     glPopMatrix();
-    
-    // Set color for the lines
-    glColor3f(0.0f, 0.0f, 0.0f); // Black color for the lines
+    glColor3f(0.0f, 0.0f, 0.0f);
     
     // Horizontal line around the sphere (equator)
     glPushMatrix();
     glRotatef(90, 1, 0, 0);
     glutSolidTorus(0.02, 0.4, 20, 20);
     glPopMatrix();
-    
-    // Vertical line around the sphere (front to back)
+
     glPushMatrix();
     glRotatef(90, 0, 1, 0);
     glutSolidTorus(0.02, 0.4, 20, 20);

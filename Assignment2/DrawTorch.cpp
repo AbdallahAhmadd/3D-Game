@@ -27,15 +27,15 @@ void DrawTorch(){
     
     // Draw the Olympic torch, positioned further to the right
     glPushMatrix();
-    glTranslatef(7.0, 0.0, -6.0);   // Move the torch 15 units to the right
-    glRotated(-45, 0, 1, 0);        // Optional rotation to adjust angle if needed
+    glTranslatef(7.0, 0.0, -6.0);
+    glRotated(-45, 0, 1, 0);
     
     GLUquadric* quad = gluNewQuadric();
     
     // Draw the base disk with thickness
     glPushMatrix();
-    glColor3f(0.6f, 0.6f, 0.6f);  // Light gray color for the base
-    glTranslatef(0.0, 0.1, 0.0);  // Position slightly above ground
+    glColor3f(0.6f, 0.6f, 0.6f);
+    glTranslatef(0.0, 0.1, 0.0);  
     gluCylinder(quad, 1.0, 1.0, 0.2, 30, 30);  // Thick cylinder for base disk
     glTranslatef(0.0, 0.2, 0.0);  // Move up for top face of the base disk
     gluDisk(quad, 0.0, 1.0, 30, 30);  // Disk on top of the base
@@ -43,20 +43,20 @@ void DrawTorch(){
     
     // Draw the standing cube on the base
     glPushMatrix();
-    glColor3f(0.8f, 0.5f, 0.2f);  // Bronze color for the cube
-    glTranslatef(0.0, 0.5, 0.0);  // Position cube on top of the base disk
-    glScaled(0.5, 1.0, 0.5);      // Scale cube to make it taller
-    glutSolidCube(1.0);            // Draw the cube
+    glColor3f(0.8f, 0.5f, 0.2f);
+    glTranslatef(0.0, 0.5, 0.0);
+    glScaled(0.5, 1.0, 0.5);
+    glutSolidCube(1.0);
     glPopMatrix();
     
     // Draw the cylinder (flame holder) on top of the cube
     glPushMatrix();
-    glColor3f(0.3f, 0.3f, 0.3f);  // Dark gray for the flame holder
-    glTranslatef(0.0, 1.25, 0.0);  // Position on top of the cube
-    gluCylinder(quad, 0.25, 0.25, 0.5, 30, 30);  // Thin cylinder for the flame holder
+    glColor3f(0.3f, 0.3f, 0.3f);
+    glTranslatef(0.0, 1.25, 0.0);
+    gluCylinder(quad, 0.25, 0.25, 0.5, 30, 30);
     glPopMatrix();
     
-    // Draw the sphere (flame) on top of the cylinder
+   
     glPushMatrix();
     
     
@@ -67,11 +67,11 @@ void DrawTorch(){
        } else {
            glColor3f(1.0f, 0.0f, 0.0f);  // Red
        }
-    glTranslatef(0.0, 1.75, 0.0);  // Position above the cylinder
-    glutSolidSphere(0.3, 20, 20);  // Sphere representing the flame
+    glTranslatef(0.0, 1.75, 0.0);
+    glutSolidSphere(0.3, 20, 20);
     glPopMatrix();
     
-    gluDeleteQuadric(quad);  // Clean up quadric object
+    gluDeleteQuadric(quad);
     glPopMatrix();
     
 }

@@ -14,5 +14,6 @@
 
 void loadSounds() ;
 void playSound(const std::string& soundName);
+void stopSound(const std::string& soundName);
 
 #endif /* SoundManager_hpp */
